@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Hi, {{ user.username }}!</h1>
+
+        <div class="container-fluid p-5 my-5 border"> 
+            <h1 class="text-center">Hello, {{ user.username }}! What would you like to learn about?</h1>
+            {% for subject in science %}
+            <div class="row">
+               <button type = "button" class="btn">{{subject}}</button>
+            </div>
+            {% endfor %}
+            
+        </div>
 {% endblock %}
+        
