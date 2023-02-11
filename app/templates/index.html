@@ -3,7 +3,7 @@
 {% block content %}
 
         <div class="container-fluid p-5 my-5 border"> 
-            <h1 class="text-center">Hello, {{ user.username }}! What would you like to learn about?</h1>
+            <h1 class="text-center">Hello, {{ current_user.username }}! What would you like to learn about?</h1>
             {% for subject in science %}
             <div class="row">
                <button type = "button" class="btn">{{subject}}</button>
