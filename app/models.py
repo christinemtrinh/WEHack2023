@@ -20,7 +20,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
     def avatar(self, size):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
-        return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
+        return 'https://www.gravatar.com/avatar/{}?d=robohash&s={}'.format(
             digest, size)
 class Content(db.Model):
     id=db.Column(db.Integer, primary_key=True)
