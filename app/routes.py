@@ -24,7 +24,7 @@ def index():
 		else:
 			message="Happy learnings!"
 		return render_template('index.html', title='Home', topics=topics, query=query, message=message)
-	science = ["bio", "cs", "ecs"]
+	
 	return render_template('index.html', title='Home', topic="")
 
 
@@ -77,7 +77,7 @@ def information(info):
 def user(username): 
     user = User.query.filter_by(username=username).first_or_404()
     posts = [
-        {'author': user, 'body': 'Test post 1'},
-        {'author': user, 'body': 'Test post 2'}
+        {'author': user, 'body': '2 miles'},
+        {'author': user, 'body': '1 miles'}
     ]
     return render_template('user.html', user=user, posts=posts)

@@ -8,7 +8,7 @@
             <h1 class="text-center">Hello, {{ current_user.username }}! What would you like to learn about?</h1>
 
             <form action="/" method="GET">
-                <input type="text" name="query">
+                <input type="text" name="query" help="">
                 <input type="submit" value="Search">
             </form>
             <h1> {{message}}</h1>
@@ -20,6 +20,10 @@
                 
             </div>
             {% endfor %}
+            <form action="/" method="GET">
+                
+                <input type="submit" value="Randomize!" help="random" >
+            </form>
             
         </div>
 {% endblock %}
