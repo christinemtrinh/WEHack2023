@@ -1,2 +1,6 @@
 {% extends "base.html" %}
-
+{% block content %}
+<h1>{{item[0][1]}}</h1>
+<p>{{item[0][2]}}</p>
+<a href="{{ url_for('index') }}">Done!</a>
+{% endblock %}

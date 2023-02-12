@@ -22,6 +22,7 @@ class User(UserMixin, db.Model):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=robohash&s={}'.format(
             digest, size)
+
 class Content(db.Model):
     id=db.Column(db.Integer, primary_key=True)
     topic = db.Column(db.String)
@@ -29,5 +30,13 @@ class Content(db.Model):
 
     def __repr__(self):
         return '<Content {}'.format(self.topic)
+
+class UserHistory(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(64), index=True, primary_key=True)
+    contentID = db.Column(db.Integer, primary_key=True)
+
+    def __repr__(self): 
+        return '<UserHistory {}'.format(self.username)
 
 
