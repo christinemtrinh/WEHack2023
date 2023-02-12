@@ -63,3 +63,12 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route('/information/<info>', methods=['GET'])
+def information(info):
+	db = get_db()
+	cursor = db.cursor()
+	cursor.execute("SELECT * FROM Content WHERE id LIKE ?", (info))
+	item = cursor.fetchall()
+
+	return render_template('information.html', item=item)
