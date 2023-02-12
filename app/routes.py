@@ -1,17 +1,32 @@
-from flask import render_template, redirect, url_for, flash, request
+from flask import Flask, render_template, redirect, url_for, flash, request
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 from werkzeug.urls import url_parse
+import sqlite3
 
+def get_db():
+    db = sqlite3.connect('app.db')
+    return db
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
+	if request.method=="GET" and request.args.get('query')!=None:
+		query = request.args.get('query')
+		db = get_db()
+		cursor = db.cursor()
+		cursor.execute("SELECT * FROM Content WHERE topic LIKE ?", ('%'+query+'%',))
+		topics = cursor.fetchall()
+		if len(topics)==0:
+			message="We don't have that information yet. Please try another topic!"
+		else:
+			message="Happy learnings!"
+		return render_template('index.html', title='Home', topics=topics, query=query, message=message)
 	science = ["bio", "cs", "ecs"]
-	return render_template('index.html', title='Home', science=science)
+	return render_template('index.html', title='Home', topic="")
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

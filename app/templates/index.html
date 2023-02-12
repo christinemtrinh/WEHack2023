@@ -4,9 +4,16 @@
 
         <div class="container-fluid p-5 my-5 border"> 
             <h1 class="text-center">Hello, {{ current_user.username }}! What would you like to learn about?</h1>
-            {% for subject in science %}
+
+            <form action="/" method="GET">
+                <input type="text" name="query">
+                <input type="submit" value="Search">
+            </form>
+            <h1> {{message}}</h1>
+            {% for topic in topics %}
             <div class="row">
-               <button type = "button" class="btn">{{subject}}</button>
+               <button type = "button" class="btn"
+               >{{topic[1]}}</button>
             </div>
             {% endfor %}
             
