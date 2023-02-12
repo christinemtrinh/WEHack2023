@@ -2,9 +2,10 @@ from flask import Flask, render_template, redirect, url_for, flash, request
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, UserHistory
 from werkzeug.urls import url_parse
 import sqlite3
+from datetime import datetime
 
 def get_db():
     db = sqlite3.connect('app.db')
@@ -72,6 +73,7 @@ def information(info):
 	item = cursor.fetchall()
 
 	return render_template('information.html', item=item)
+
 @app.route('/user/<username>')
 @login_required
 def user(username): 
@@ -81,3 +83,8 @@ def user(username):
         {'author': user, 'body': 'Test post 2'}
     ]
     return render_template('user.html', user=user, posts=posts)
+
+def finish_task(task_id): 
+    task_finished = UserHistory(username=current_user.username, contentID=task_id, time_done=datetime.utcnow())
+    db.session.add(task_finished)
+    db.session.commit()

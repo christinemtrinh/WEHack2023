@@ -2,5 +2,7 @@
 {% block content %}
 <h1>{{item[0][1]}}</h1>
 <p>{{item[0][2]}}</p>
-<a href="{{ url_for('index') }}">Done!</a>
+<button type="button" onclick="finish_task(item[0][0])">
+    <a href="{{ url_for('index') }}">Done!</a>
+</button>
 {% endblock %}

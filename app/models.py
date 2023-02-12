@@ -35,7 +35,7 @@ class UserHistory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, primary_key=True)
     contentID = db.Column(db.Integer, primary_key=True)
-
+    time_done = db.Column(db.DateTime)
     def __repr__(self): 
         return '<UserHistory {}'.format(self.username)
 
