@@ -1,0 +1,111 @@
+header {
+    background-color: #00bfff; /* Light blue color */
+    display: flex;
+    align-items: center;
+    height: 50px;
+ }
+ 
+ nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 50px; /* Space between navigation and the right side of the header */
+    width: 100%; /* Full width of the page */
+ }
+ 
+ nav ul {
+    display: flex;
+    align-items:center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+ }
+ 
+ nav li {
+    margin: 0 20px; /* Space between list items */
+ }
+ 
+ nav a {
+    color: #fff; /* White text color */
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+ }
+ 
+ nav a:hover {
+    color: #008080; /* Light green color on hover */
+ }
+ 
+ 
+ /* "Learn Adventure" text on the left */
+ header h1 {
+    margin-left: 50px; /* Space between text and the left side of the header */
+    color: #fff; /* White text color */
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    align-items: center;
+    
+    display: flex;
+   justify-content: flex-start; /* Align elements to the left */
+ }
+ 
+ body {
+    background-color: #f2f2f2; /* Light gray color */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  a {
+    color: #00bfff; /* Light blue color */
+    text-decoration: none;
+  }
+  
+  button {
+    background-color: #00bfff; /* Light blue color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="text"], textarea {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  input[type="submit"] {
+    background-color: #00bfff; /* Light blue color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #00bfff; /* Light blue color */
+    color: white;
+  }
+  
